@@ -1,0 +1,21 @@
+---
+import type { News } from "./Variables";
+
+interface Props {
+    data: News;
+}
+
+const { data } = Astro.props;
+---
+
+<h3>{data.label}</h3>
+<p>
+    {
+        data.date.toLocaleDateString("jp", {
+            weekday: "long",
+            year: "numeric",
+            month: "short",
+            day: "numeric",
+        })
+    }
+</p>

@@ -1,0 +1,52 @@
+---
+import ListItem from "./ListItem.astro";
+import type { News } from "./Variables";
+
+interface Props {
+    news: News[];
+}
+
+const { news } = Astro.props;
+---
+
+<ul>
+    {
+        news.map((data, index) =>
+            data.page ? (
+                <li>
+                    <a href={data.page}>
+                        <ListItem {data} />
+                    </a>
+                </li>
+            ) : (
+                <li>
+                    <ListItem {data} />
+                </li>
+            )
+        )
+    }
+</ul>
+
+<style lang="scss">
+    ul {
+        list-style: none;
+        padding: 0;
+
+        li {
+            padding: 1rem;
+            border-bottom: solid 1px black;
+
+            &:last-child {
+                border-bottom: none;
+            }
+
+            &:has(a) {
+            }
+
+            a {
+                text-decoration: none;
+                color: #5ab4bd;
+            }
+        }
+    }
+</style>

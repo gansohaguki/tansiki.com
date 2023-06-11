@@ -1,0 +1,131 @@
+---
+import Default from "../layouts/Default.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+
+interface QA {
+    question: string;
+    answer: string;
+}
+
+const qas: QA[] = [
+    {
+        question: "お名前は何ですか？",
+        answer: "1037番隊隊長たんしき",
+    },
+    {
+        question: "ご職業は何ですか？",
+        answer: "調査兵団",
+    },
+    {
+        question: "専門的に取り組んでいる分野は何ですか？",
+        answer: "前歯の卍解",
+    },
+    {
+        question: "最終学歴や学位について教えてください。",
+        answer: "数学オリンピックになりそこねた者です",
+    },
+    {
+        question: "これまでにどのような経験を積まれましたか？",
+        answer: "スタンプになったり卍解を習得したりキモいと言われたりまあ色々です☺️",
+    },
+    {
+        question: "興味や趣味について教えてください。",
+        answer: "最近影実にハマっています。",
+    },
+    {
+        question: "自分自身について簡単に自己紹介していただけますか？",
+        answer: "上から来るぞー！",
+    },
+    {
+        question: "ウェブサイトや自身の活動に対する目標は何ですか？",
+        answer: "彼女を作ることです",
+    },
+    {
+        question: "お持ちの特技や才能はありますか？",
+        answer: "やっぱりこの生まれ持って「前歯」と思います。",
+    },
+    {
+        question: "賞や実績: 受賞や達成した実績について教えてください。",
+        answer: "出会って1秒の人にキモいとよく言われる事。",
+    },
+    {
+        question: "どのような言語を話すことができますか？",
+        answer: "hdidhdibdifbcuhvoowkbwpncvxiebxjxhbdidhdkdnxhxibdodbd。",
+    },
+    {
+        question:
+            "ソーシャルメディアのアカウントを持っている場合、リンクを教えていただけますか？",
+        answer: "はいはい教えません！きっしょ死んじゃえよ",
+    },
+    {
+        question: "プロフィールに追加してお伝えしたい情報はありますか？",
+        answer: "俺はたんしきになるんだ〜！！",
+    },
+];
+---
+
+<Default title="たんしき OFFICIAL SITE">
+    <Header />
+    <main>
+        <h2>FAQ</h2>
+        <p>よくある質問をたんしきさんに実際に答えて頂いたものです。</p>
+        <ul>
+            {
+                qas.map((qa) => (
+                    <li>
+                        <p>{qa.question}</p>
+                        <p>{qa.answer}</p>
+                    </li>
+                ))
+            }
+        </ul>
+    </main>
+    <Footer />
+</Default>
+
+<style lang="scss">
+    main {
+        padding: 2rem;
+
+        h2 {
+            margin-top: 0;
+            text-align: center;
+        }
+
+        & > p {
+            margin-top: 0;
+            text-align: center;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+
+            li {
+                padding: 1rem;
+
+                p:first-child() {
+                    background-color: lighten(#5ab4bd, 25%);
+                    margin: 0;
+                    padding: 1rem;
+                    line-height: 1.5rem;
+
+                    &::before {
+                        content: "Q";
+                        margin: 1rem;
+                        font-weight: bold;
+                    }
+                }
+
+                p:last-child() {
+                    background-color: lighten(#5ab4bd, 40%);
+                    margin: 0;
+                    padding: 1rem;
+                    padding-left: 4rem;
+                    line-height: 1.5rem;
+                }
+            }
+        }
+    }
+</style>
